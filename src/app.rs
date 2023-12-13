@@ -30,7 +30,7 @@ pub fn App() -> impl IntoView {
         // sets the document title
         <Title text="Hello there, General Kenobi."/>
 
-        <ChatArea/>
-        <TypeArea/>
+        <ChatArea conversation/>
+        <TypeArea send/>
     }
 }
