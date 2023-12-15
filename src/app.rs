@@ -1,8 +1,11 @@
+use crate::api::converse;
+use crate::app::components::chat_area::ChatArea;
+use crate::app::components::type_area::TypeArea;
 use crate::model::conversation::Conversation;
 use crate::model::conversation::Message;
 use leptos::*;
 use leptos_meta::*;
-use leptos_router::*;
+mod components;
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -19,7 +22,28 @@ pub fn App() -> impl IntoView {
         set_conversations.update(move |c| {
             c.messages.push(user_message);
         });
-        // TODO
+        converse(conversation.get())
+    });
+
+    create_effect(move |_| {
+        if let Some(_) = send.input().get() {
+            let model_message = Message {
+                text: String::from("..."),
+                user: false,
+            };
+
+            set_conversations.update(move |c| {
+                c.messages.push(model_message);
+            });
+        }
+    });
+
+    create_effect(move |c| {
+        if let Some(Ok(response)) = send.value().get() {
+            set_conversations.update(move |c| {
+                c.messages.last_mut().unwrap().text = response;
+            });
+        }
     });
 
     view! {
