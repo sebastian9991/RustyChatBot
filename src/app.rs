@@ -38,7 +38,7 @@ pub fn App() -> impl IntoView {
         }
     });
 
-    create_effect(move |c| {
+    create_effect(move |_| {
         if let Some(Ok(response)) = send.value().get() {
             set_conversations.update(move |c| {
                 c.messages.last_mut().unwrap().text = response;
@@ -53,7 +53,6 @@ pub fn App() -> impl IntoView {
 
         // sets the document title
         <Title text="Hello there, General Kenobi."/>
-
         <ChatArea conversation/>
         <TypeArea send/>
     }

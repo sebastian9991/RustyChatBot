@@ -19,7 +19,7 @@ async fn main() -> std::io::Result<()> {
 
     #[get("/style.css")]
     async fn css() -> impl Responder {
-        actix_files::NamedFiled::open_async("./style/output.css").await
+        actix_files::NamedFile::open_async("./style/output.css").await
     }
 
     let model = web::Data::new(get_language_model());
@@ -75,7 +75,7 @@ cfg_if! {
     &PathBuf::from(&model_path),
     llm::TokenizerSource::Embedded,
     Default::default(),
-    llm:load_progress_callback_stdout,
+    llm::load_progress_callback_stdout,
     ).unwrap_or_else(|err| {
     panic!("Failed to load model from {model_path:?}: {err}");
 
