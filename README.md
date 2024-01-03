@@ -1,4 +1,6 @@
 ## Full-Stack Rust ChatBot
+![ezgif-2-3b8a68f378](https://github.com/sebastian9991/RustyChatBot/assets/61892815/a73046d9-d0cd-4853-bf0c-76f1180caec0)
+
 
 We use Leptos in this project, a Rust web framework. Using tailwind for the UI, client and serverside code in Rust, along with a hugging-face LLM that is supported by Rustformers. 
 
