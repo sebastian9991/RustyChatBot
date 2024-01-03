@@ -12,4 +12,8 @@ Once all tensors of the LLM have loaded we can ask an example question, gauging 
 
 As you can see from the first question (What is 6 + 10?) the LLM gives quite a deluded, but impressive-sounding answer, that may stem from the fine-tuning done originally or perhaps some sort of history of questions prior.
 
+The knowledge can sometimes be out of date haha!
+
+![Screenshot from 2024-01-02 17-30-07](https://github.com/sebastian9991/RustyChatBot/assets/61892815/8f1b20a7-778d-4a25-b029-4470720a2e25)
+
 
